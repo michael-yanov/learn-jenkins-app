@@ -11,6 +11,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo "============================"
                     ls -la
                     node --version
                     npm --version
@@ -30,6 +31,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo "============================"
                     [ -f build/index.html ]
                     npm test
                 '''
@@ -45,8 +47,9 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm install -g serve
-                    serve -s build
+                    echo "============================"
+                    npm install serve
+                    node_modules/.bin/serve -s build
                     npx playwright test
                 '''
             }
