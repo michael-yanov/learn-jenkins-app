@@ -17,7 +17,7 @@ pipeline {
 
                     npm cache clean --force
 
-                    npm ci
+                    npm install
                     npm run build
                 '''
             }
