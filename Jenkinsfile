@@ -11,13 +11,15 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "============================"
-                    ls -la
+                    set -e
                     node --version
                     npm --version
+
+                    export npm_config_cache=$PWD/.npm-cache
+                    npm cache clean --force
+
                     npm ci
                     npm run build
-                    ls -la
                 '''
             }
         }
@@ -31,7 +33,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "============================"
                     [ -f build/index.html ]
                     npm test
                 '''
@@ -47,7 +48,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "============================"
                     npm install serve
                     node_modules/.bin/serve -s build &
                     sleep 10
