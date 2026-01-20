@@ -15,7 +15,6 @@ pipeline {
                     node --version
                     npm --version
 
-                    export npm_config_cache=$PWD/.npm-cache
                     npm cache clean --force
 
                     npm ci
