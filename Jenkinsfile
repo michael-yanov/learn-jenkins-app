@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     options {
-        buildDiscarded (
+        buildDiscarder (
             logRotator (
                 numTokeepStr: '10'
             )
