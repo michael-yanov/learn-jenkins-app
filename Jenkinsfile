@@ -94,7 +94,7 @@ pipeline {
                     npm install netlify-cli
                     node_modules/.bin/netlify --version
                     echo "Deploying to production. project ID: $NETLIFY_PROJECT_ID"
-                    node_modules/.bin/netlify link
+                    node_modules/.bin/netlify link https://github.com/michael-yanov/learn-jenkins-app
                     node_modules/.bin/netlify status
                 '''
             }
